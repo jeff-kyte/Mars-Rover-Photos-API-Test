@@ -1,0 +1,22 @@
+body {
+	background-color:#1e160e;
+	color:#ffd7bf;
+}
+.manifest {
+    display: none;
+}
+.form-section {
+	margin: 20px 0px;
+}
+.form-section-rover input {
+	margin-left:30px;
+}
+.disabled {
+	color:#605955;
+}
+.date {
+	margin: 10px 0;
+}
+.img {
+	max-width:100%;
+}

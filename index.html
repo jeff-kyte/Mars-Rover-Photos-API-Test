@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Final Inspection: Mars Rover Photos API</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles.css"/>
+	<script src="./scripts.js"></script>
+</head>
+<body>
+   <h1>Mars Rover Photos API Test</h1>
+    <form id="form1" action="#">
+    <div class="form-section form-section-rover">
+       <h2>Select a rover</h2>
+        <input type="radio" id="curiosity" name="rover" value="curiosity"/>
+        <label for="curiosity">Curiosity Rover</label>
+        <input type="radio" id="opportunity" name="rover" value="opportunity"/>
+        <label for="opportunity">Opportunity Rover</label>
+        <input type="radio" id="spirit" name="rover" value="spirit"/>
+        <label for="spirit">Spirit Rover</label>
+    </div>
+    <div class="form-section form-section-date">
+       <h2>Select a date</h2>
+        <div class="date" >
+			<label for="earthDate">Earth Date: </label>
+			<input type="date" id="earthDate" name="date">
+			<span id="earthRange" class="range"></span>
+		</div>
+        <div class="date" >
+			<label for="solDate">Martian Sol: </label>
+			<input type="number" id="solDate" name="date" min="0">
+			<span id="solRange" class="range"></span>
+		</div>
+    </div>
+    <div class="form-section form-section-camera">
+       <h2>Specify camera (optional)</h2>
+        <div class="cam"><input type="radio" name="camera" id="FHAZ"><label for="FHAZ">FHAZ - Front Hazard Avoidance Camera</label></div>
+        <div class="cam"><input type="radio" name="camera" id="RHAZ"><label for="RHAZ">RHAZ - Rear Hazard Avoidance Camera</label></div>
+        <div class="cam"><input type="radio" name="camera" id="MAST"><label for="MAST">MAST - Mast Camera</label></div>
+        <div class="cam"><input type="radio" name="camera" id="CHEMCAM"><label for="CHEMCAM">CHEMCAM - Chemistry and Camera Complex</label></div>
+        <div class="cam"><input type="radio" name="camera" id="MAHLI"><label for="MAHLI">MAHLI - Mars Hand Lens Imager</label></div>
+        <div class="cam"><input type="radio" name="camera" id="MARDI"><label for="MARDI">MARDI - Mars Descent Imager</label></div>
+        <div class="cam"><input type="radio" name="camera" id="NAVCAM"><label for="NAVCAM">NAVCAM - Navigation Camera</label></div>
+        <div class="cam"><input type="radio" name="camera" id="PANCAM"><label for="PANCAM">PANCAM - Panoramic Camera</label></div>
+        <div class="cam"><input type="radio" name="camera" id="MINITES"><label for="MINITES">MINITES - Miniature Thermal Emission Spectrometer (Mini-TES)</label></div>
+    </div>
+	<div class="form-section form-section-page">
+		<label for="pageNum">Page Number: </label><input type="number" id="pageNum" name="pageNum" min="1"><span id="pageRange" class="range"></span>
+	</div>
+	<div class="form-section form-section-submit">
+		<button type="button" id="submit">Submit</button>
+    </div>
+	</form>
+	<div id="images">
+		
+	</div>
+    <table id="response">
+        <tr>
+            <th>Query</th>
+            <th>Response Length</th>
+            <th>Response Time</th>
+        </tr>
+    </table>
+    <div id="curiosityManifest" class="manifest"></div>
+    <div id="opportunityManifest" class="manifest"></div>
+    <div id="spiritManifest" class="manifest"></div>
+</body>
+</html>
