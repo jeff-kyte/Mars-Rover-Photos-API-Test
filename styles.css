@@ -17,6 +17,17 @@ body {
 .date {
 	margin: 10px 0;
 }
-.img {
+img {
 	max-width:100%;
+	height:auto;
+}
+.img {
+	max-width:30%;
+	margin: 5px;
+}
+#images {
+	display:flex;
+	flex-flow: row wrap;
+	align-items: center;
+    justify-content: flex-start;
 }

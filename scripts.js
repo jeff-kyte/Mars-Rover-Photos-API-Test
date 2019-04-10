@@ -102,7 +102,6 @@ var mrpTest = (function() {
 			
 		}
 	}
-	
 	// Enable form section by name:
 	function enable(sectionName) {
 		document.getElementsByClassName("form-section-" + sectionName)[0].classList.toggle("disabled", false);
@@ -123,8 +122,10 @@ var mrpTest = (function() {
 			case "camera" :
 				for (let camera of selectedDate.cameras) {
 					let inputElem = document.getElementById(camera);
-					inputElem.removeAttribute("disabled");
-					inputElem.parentNode.classList.toggle("disabled", false);
+					if (inputElem) { // Avoid undocumented camera names.
+						inputElem.removeAttribute("disabled");
+						inputElem.parentNode.classList.toggle("disabled", false);
+					}
 				}
 				break;
 			case "page" :
