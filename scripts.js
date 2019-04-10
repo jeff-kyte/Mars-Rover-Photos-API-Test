@@ -126,6 +126,9 @@ var mrpTest = (function() {
 						inputElem.removeAttribute("disabled");
 						inputElem.parentNode.classList.toggle("disabled", false);
 					}
+					document.getElementById("allCams").removeAttribute("disabled");
+					document.getElementById("allCams").checked = true;
+					document.getElementById("allCams").parentNode.classList.toggle("disabled", false);
 				}
 				break;
 			case "page" :
@@ -173,8 +176,9 @@ var mrpTest = (function() {
 		let request = url + selectedRover + "/photos?"
 		if (dateType == "martian") request += "sol=" + selectedDate.sol;
 		else request += "earth_date=" + selectedDate.earth_date;
+		selectedCamera = null;
 		for (let cam of document.getElementsByClassName("form-section-camera")[0].getElementsByTagName("input"))
-			if (cam.checked)
+			if (cam.id != "allCams" && cam.checked)
 				selectedCamera = cam.id;
 		if (selectedCamera != null)
 			request += "&camera=" + selectedCamera;
