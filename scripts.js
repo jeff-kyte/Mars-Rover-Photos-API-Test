@@ -21,7 +21,10 @@ var mrpTest = (function() {
 		};
 		cxhttp.send();
 		
-		var oxhttp = new XMLHttpRequest(); // Opportunity
+		
+		// Commented code to request Opportunity and Spirit manifests:
+		// These rovers are inactive and so we can store the manifests locally instead.
+		/*var oxhttp = new XMLHttpRequest(); // Opportunity
 		oxhttp.open("GET",'https://api.nasa.gov/mars-photos/api/v1/manifests/opportunity?' + apiKey);
 		oxhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
@@ -37,7 +40,7 @@ var mrpTest = (function() {
 			   document.getElementById("spiritManifest").innerHTML = this.responseText;
 			}
 		};
-		sxhttp.send();
+		sxhttp.send(); */
 		
 		
 		// Check for manifest data:
