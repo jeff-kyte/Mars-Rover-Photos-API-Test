@@ -77,7 +77,6 @@ var mrpTest = (function() {
 		// Submit button event listener:
 		document.getElementById("submit").addEventListener("click", function() {
 			callAPI();
-			window.scrollBy(0, -30);
 		});
 	}
 	
