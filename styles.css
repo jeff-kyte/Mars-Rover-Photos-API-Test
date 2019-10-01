@@ -2,32 +2,6 @@ body {
 	background-color:#1e160e;
 	color:#ffd7bf;
 }
-h1:nth-of-type(1) {
-	padding-top: 30px;
-}
-#topNav {
-	position: fixed;
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    left: 0;
-    top: 0;
-    background: rgba(30, 22, 14, 0.9);
-}
-
-#topNav a, #submit {
-	color: #ffd7bf;
-    display: inline-block;
-    height: 30px;
-    text-decoration: none;
-    border: groove #ffd7bf 4px;
-    padding: 9px 20px 0 20px;
-    margin: 5px auto;
-}
-
-.active-section {
-	padding-top: 35px;
-}
 .manifest {
     display: none;
 }
@@ -48,7 +22,7 @@ img {
 	height:auto;
 }
 .img {
-	max-width:200px;
+	max-width:30%;
 	margin: 5px;
 }
 #images {
@@ -56,34 +30,4 @@ img {
 	flex-flow: row wrap;
 	align-items: center;
     justify-content: flex-start;
-<<<<<<< Updated upstream
-=======
-}
-input {
-	border-radius: 5px;
-}
-#pageNum {
-	margin-right: 5px;
-}
-#spiritDateWarning {
-	display:none;
-}
-#solDate {
-	width: 125px;
-}
-#response {
-	text-align: left;
-	overflow-x: auto;
-}
-#response tr {
-	
-}
-#response th {
-	border-bottom: groove #ffd7bf 4px;
-}
-#response td {
-	border-bottom: groove #ffd7bf 1px;
-    padding: 5px 5px 0 5px;
-    overflow-wrap: break-word;
->>>>>>> Stashed changes
 }
