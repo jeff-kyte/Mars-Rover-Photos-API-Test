@@ -40,7 +40,7 @@ var mrpTest = (function() {
 			   document.getElementById("spiritManifest").innerHTML = this.responseText;
 			}
 		};
-		sxhttp.send(); */
+		sxhttp.send();*/
 		
 		
 		// Check for manifest data:
@@ -79,6 +79,7 @@ var mrpTest = (function() {
 		// Submit button event listener:
 		document.getElementById("submit").addEventListener("click", function() {
 			callAPI();
+			window.scrollBy(0, -30);
 		});
 	}
 	
@@ -94,10 +95,22 @@ var mrpTest = (function() {
 			case "earthDate" :
 				selectedDate = manifest.photo_manifest.photos.find(x => x.earth_date == event.target.value);
 				dateType = "earth";
+<<<<<<< Updated upstream
+=======
+				// Show corresponding Martian date:
+				if (typeof(selectedDate) !== 'undefined' && selectedRover != "spirit")
+					document.getElementById("solDate").value = selectedDate.sol;
+>>>>>>> Stashed changes
 				break;
 			case "solDate" :
 				selectedDate = manifest.photo_manifest.photos.find(x => x.sol == event.target.value);
 				dateType = "martian";
+<<<<<<< Updated upstream
+=======
+				// Show corresponding Earth date:
+				if (typeof(selectedDate) !== 'undefined' && selectedRover != "spirit")
+					document.getElementById("earthDate").value = selectedDate.earth_date;
+>>>>>>> Stashed changes
 		}
 		if (selectedDate) {// Enable dependent inputs:
 			for (let sectionName of ["camera", "page", "submit"])
@@ -116,9 +129,19 @@ var mrpTest = (function() {
 				document.getElementById("submit").removeAttribute("disabled");
 				break;
 			case "date" : // Set constraints based on manifest:
+<<<<<<< Updated upstream
 				document.getElementById("earthDate").setAttribute("min", manifest.photo_manifest.landing_date);
 				document.getElementById("earthDate").setAttribute("max", manifest.photo_manifest.max_date);
 				document.getElementById("earthRange").innerHTML = "( " + manifest.photo_manifest.landing_date + " - " + manifest.photo_manifest.max_date + " )";
+=======
+			console.log(selectedRover);
+					document.getElementById("earthDate").setAttribute("min", manifest.photo_manifest.landing_date);
+					document.getElementById("earthDate").setAttribute("max", manifest.photo_manifest.max_date);
+					document.getElementById("earthRange").innerHTML = "( " + manifest.photo_manifest.landing_date + " - " + manifest.photo_manifest.max_date + " )";
+				if (selectedRover == "spirit")
+					document.getElementById("spiritDateWarning").style.display = "block";
+				else document.getElementById("spiritDateWarning").style.display = "none";
+>>>>>>> Stashed changes
 				document.getElementById("solDate").setAttribute("max", manifest.photo_manifest.max_sol);
 				document.getElementById("solRange").innerHTML = "( 0 - " + manifest.photo_manifest.max_sol + " )";
 				break;
@@ -196,8 +219,12 @@ var mrpTest = (function() {
 				var resultObj = JSON.parse(this.responseText);
 				
 				// Append meta-results to table:
+<<<<<<< Updated upstream
 				var requestTime = Date.now() - startTime;
 				var rTable = document.getElementById("response");
+=======
+				var rTable = document.getElementById("response").getElementsByTagName("table")[0];
+>>>>>>> Stashed changes
 				
 				var row = document.createElement("tr");
 				var cell = document.createElement("td");
@@ -228,17 +255,34 @@ var mrpTest = (function() {
 		};
 		xhttp.send();
 	}
+	function setActiveSection(sectionId) {
+		for (let enabledSection of document.getElementsByClassName("active-section"))
+				enabledSection.classList.remove("active-section");
+		document.getElementById(sectionId).classList.add("active-section");
+	}
 	function getManifest() {
 		return manifest;
 	}
 	return {
 		init : init,
+		setActiveSection : setActiveSection,
 		getManifest: getManifest
 	};
 })();
 
-/*** Initialize Mars Rover Photos API Test ***/
-window.onload = function mrpInit() {
+
+window.onload = function() {
+	
+	/*** Initialize Mars Rover Photos API Test ***/
 	mrpTest.init();
+	
+	
+	// Track navigation
+	for (let navLink of document.getElementById("topNav").getElementsByTagName("a")) {
+		navLink.addEventListener("click", function(event) {
+			mrpTest.setActiveSection(event.target.hash.substring(1));
+		});
+	}
+	
 };
 
