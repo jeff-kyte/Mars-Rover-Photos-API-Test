@@ -56,8 +56,6 @@ img {
 	flex-flow: row wrap;
 	align-items: center;
     justify-content: flex-start;
-<<<<<<< Updated upstream
-=======
 }
 input {
 	border-radius: 5px;
@@ -85,5 +83,4 @@ input {
 	border-bottom: groove #ffd7bf 1px;
     padding: 5px 5px 0 5px;
     overflow-wrap: break-word;
->>>>>>> Stashed changes
 }

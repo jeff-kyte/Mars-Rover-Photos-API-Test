@@ -21,7 +21,6 @@ var mrpTest = (function() {
 		};
 		cxhttp.send();
 		
-		
 		// Commented code to request Opportunity and Spirit manifests:
 		// These rovers are inactive and so we can store the manifests locally instead.
 		/*var oxhttp = new XMLHttpRequest(); // Opportunity
@@ -41,7 +40,6 @@ var mrpTest = (function() {
 			}
 		};
 		sxhttp.send();*/
-		
 		
 		// Check for manifest data:
 		loadInterval = setInterval(function() {
@@ -95,22 +93,16 @@ var mrpTest = (function() {
 			case "earthDate" :
 				selectedDate = manifest.photo_manifest.photos.find(x => x.earth_date == event.target.value);
 				dateType = "earth";
-<<<<<<< Updated upstream
-=======
 				// Show corresponding Martian date:
 				if (typeof(selectedDate) !== 'undefined' && selectedRover != "spirit")
 					document.getElementById("solDate").value = selectedDate.sol;
->>>>>>> Stashed changes
 				break;
 			case "solDate" :
 				selectedDate = manifest.photo_manifest.photos.find(x => x.sol == event.target.value);
 				dateType = "martian";
-<<<<<<< Updated upstream
-=======
 				// Show corresponding Earth date:
 				if (typeof(selectedDate) !== 'undefined' && selectedRover != "spirit")
 					document.getElementById("earthDate").value = selectedDate.earth_date;
->>>>>>> Stashed changes
 		}
 		if (selectedDate) {// Enable dependent inputs:
 			for (let sectionName of ["camera", "page", "submit"])
@@ -129,19 +121,15 @@ var mrpTest = (function() {
 				document.getElementById("submit").removeAttribute("disabled");
 				break;
 			case "date" : // Set constraints based on manifest:
-<<<<<<< Updated upstream
 				document.getElementById("earthDate").setAttribute("min", manifest.photo_manifest.landing_date);
 				document.getElementById("earthDate").setAttribute("max", manifest.photo_manifest.max_date);
 				document.getElementById("earthRange").innerHTML = "( " + manifest.photo_manifest.landing_date + " - " + manifest.photo_manifest.max_date + " )";
-=======
-			console.log(selectedRover);
-					document.getElementById("earthDate").setAttribute("min", manifest.photo_manifest.landing_date);
-					document.getElementById("earthDate").setAttribute("max", manifest.photo_manifest.max_date);
-					document.getElementById("earthRange").innerHTML = "( " + manifest.photo_manifest.landing_date + " - " + manifest.photo_manifest.max_date + " )";
+				document.getElementById("earthDate").setAttribute("min", manifest.photo_manifest.landing_date);
+				document.getElementById("earthDate").setAttribute("max", manifest.photo_manifest.max_date);
+				document.getElementById("earthRange").innerHTML = "( " + manifest.photo_manifest.landing_date + " - " + manifest.photo_manifest.max_date + " )";
 				if (selectedRover == "spirit")
 					document.getElementById("spiritDateWarning").style.display = "block";
 				else document.getElementById("spiritDateWarning").style.display = "none";
->>>>>>> Stashed changes
 				document.getElementById("solDate").setAttribute("max", manifest.photo_manifest.max_sol);
 				document.getElementById("solRange").innerHTML = "( 0 - " + manifest.photo_manifest.max_sol + " )";
 				break;
@@ -219,12 +207,9 @@ var mrpTest = (function() {
 				var resultObj = JSON.parse(this.responseText);
 				
 				// Append meta-results to table:
-<<<<<<< Updated upstream
 				var requestTime = Date.now() - startTime;
 				var rTable = document.getElementById("response");
-=======
 				var rTable = document.getElementById("response").getElementsByTagName("table")[0];
->>>>>>> Stashed changes
 				
 				var row = document.createElement("tr");
 				var cell = document.createElement("td");
@@ -275,7 +260,6 @@ window.onload = function() {
 	
 	/*** Initialize Mars Rover Photos API Test ***/
 	mrpTest.init();
-	
 	
 	// Track navigation
 	for (let navLink of document.getElementById("topNav").getElementsByTagName("a")) {
